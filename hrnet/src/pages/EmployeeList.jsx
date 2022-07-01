@@ -1,16 +1,17 @@
 import React from 'react';
 import DisplayEmployee from '../components/DisplayEmployee';
-import { Link } from 'react-router-dom';
+import Typography from '@mui/material/Typography';
+import NavigateButton from '../components/NavigateButton';
+
 
 function EmployeeList() {
 
     return (
         
         <div>
-            <h1>Employee List</h1>
+            <Typography variant="h4" sx={{ margin: "3rem 0", textAlign: "center" }}>Employees List</Typography>
             <DisplayEmployee />
-            <br></br>
-            <Link to="/">Back to create Employee</Link>
+            <NavigateButton url="/" text="Go to create employee" />
         </div>
     )
 }

@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import CreateEmployee from './pages/CreateEmployee';
 import EmployeeList from './pages/EmployeeList';
 import Error from './pages/Error';
+import './App.css';
 
 function App() {
   return (

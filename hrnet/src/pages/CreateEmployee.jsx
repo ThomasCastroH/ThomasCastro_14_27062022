@@ -1,13 +1,16 @@
 import Form from "../components/Form";
-import { Link } from "react-router-dom";
+import Typography from "@mui/material/Typography";
+import NavigateButton from "../components/NavigateButton";
+
+
 
 function CreateEmployee() {
 
     return (
         <div>
-            <h1>Create Employee</h1>
+            <Typography variant="h4" sx={{ marginTop: "3rem", textAlign: "center", fontWeight: "bold" }}>CREATE EMPLOYEE</Typography>
             <Form />
-            <Link to="/employee-list">View current employees</Link>
+            <NavigateButton url="/employee-list" text="Go to employee list" />           
         </div>
     )
 }
