@@ -13,7 +13,6 @@ function NavigateButton(props) {
             variant="contained"
             color="primary"
             onClick={() => {
-                console.log('clicked');
                 navigate(url);
             }}
             sx={{ margin: "2rem auto", display: "block", width: "250px" }}
