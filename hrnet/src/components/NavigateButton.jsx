@@ -6,8 +6,6 @@ function NavigateButton(props) {
     let url = props.url;
     let text = props.text;
 
-    console.log(url);
-
     let navigate = useNavigate();
 
     return (

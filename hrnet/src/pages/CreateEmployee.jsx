@@ -10,7 +10,7 @@ function CreateEmployee() {
         <div>
             <Typography variant="h4" sx={{ marginTop: "3rem", textAlign: "center", fontWeight: "bold" }}>CREATE EMPLOYEE</Typography>
             <Form />
-            <NavigateButton url="/employee-list" text="Go to employee list" />           
+            <NavigateButton url="/employee-list" text="View employee list" />           
         </div>
     )
 }
