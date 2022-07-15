@@ -7,7 +7,7 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-
+import labels from "../data/labels.json";
 
 function DisplayEmployee() {
 
@@ -37,15 +37,9 @@ function DisplayEmployee() {
             <Table sx={{ minWidth: 650 }} size="small" aria-label="a dense table">
                 <TableHead>
                     <TableRow>
-                        <TableCell>Firstname</TableCell>
-                        <TableCell>Lastname</TableCell>
-                        <TableCell>Date of Birth</TableCell>
-                        <TableCell>Starting Date</TableCell>
-                        <TableCell>Department</TableCell>
-                        <TableCell>Street</TableCell>
-                        <TableCell>City</TableCell>
-                        <TableCell>State</TableCell>
-                        <TableCell>Zipcode</TableCell>
+                        {labels.map((label, index) => (
+                            <TableCell key={index}>{label.label}</TableCell>
+                        ))}
                     </TableRow>
                 </TableHead>
                 <TableBody>

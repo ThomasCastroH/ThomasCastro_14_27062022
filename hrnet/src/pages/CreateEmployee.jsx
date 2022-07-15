@@ -2,8 +2,6 @@ import Form from "../components/Form";
 import Typography from "@mui/material/Typography";
 import NavigateButton from "../components/NavigateButton";
 
-
-
 function CreateEmployee() {
 
     return (

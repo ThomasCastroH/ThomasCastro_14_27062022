@@ -16,6 +16,7 @@ function Form() {
     const dispatch = useDispatch();
 
     const [user, setUser] = useState({});
+    const [errors, setErrors] = useState(false);
 
     function handleChange(event) {
         const {name, value} = event.target
@@ -28,12 +29,14 @@ function Form() {
             id: Date.now(),
             ...user,
         };
+
         dispatch(addEmployee(data));
     };
 
-    let today = new Date();
-    let date = today.getFullYear() + '-0'+(today.getMonth() + 1) + '-0'+today.getDate();
+    let date = new Date().toISOString().substr(0, 10);
 
+
+    console.log(user.firstname);
     return (
         <Box 
             id="form"
@@ -50,16 +53,16 @@ function Form() {
                 sx={{ marginTop: "0.5rem" }}
             >
                 <Grid item xs={12} sm={6}>
-                    <TextField fullWidth id="firstname" name="firstname" label="Firstname" onChange={handleChange} required />
+                    <TextField inputProps={{ pattern: "[a-zA-Z]+$" }} fullWidth id="firstname" name="firstname" label="Firstname" onChange={handleChange} required />
                 </Grid>
                 <Grid item xs={12} sm={6}>
-                    <TextField fullWidth id="lastname" name="lastname" label="Lastname" onChange={handleChange} required />
+                    <TextField inputProps={{ pattern: "[a-zA-Z]+$" }} fullWidth id="lastname" name="lastname" label="Lastname" onChange={handleChange} required />
                 </Grid>
                 <Grid item xs={12} sm={6}>
-                    <TextField fullWidth type="date" id="birthDate" name="birthDate" label="Date of Birth" onChange={handleChange} required value={user.birthDate || "1970-01-01"} />
+                    <TextField fullWidth type="date" id="birthDate" name="birthDate" label="Date of Birth" onChange={handleChange} value={user.birthDate || "1970-01-01"} required />
                 </Grid>
                 <Grid item xs={12} sm={6}>
-                    <TextField fullWidth type="date" id="startDate" name="startDate" label="Starting Date" onChange={handleChange} required value={user.startDate || date} />
+                    <TextField fullWidth type="date" id="startDate" name="startDate" label="Starting Date" onChange={handleChange} value={user.startDate || date} required />
                 </Grid>
                 <Grid item xs={12} sm={6}>
                     <TextField fullWidth select id="department" name="department" label="Department" onChange={handleChange} required value={user.department || ""} sx={{textAlign: "left"}} >
@@ -78,10 +81,10 @@ function Form() {
                 sx={{ marginTop: "0.5rem" }}
             >
                 <Grid item xs={12} sm={6}>
-                    <TextField fullWidth id="street" name="street" label="Street" onChange={handleChange} required/>
+                    <TextField inputProps={{ pattern: "[0-9]+.*([a-zA-Z]+$)" }} fullWidth id="street" name="street" label="Street" onChange={handleChange} required/>
                 </Grid>
                 <Grid item xs={12} sm={6}>
-                    <TextField fullWidth id="city" name="city" label="City" onChange={handleChange} required />
+                    <TextField inputProps={{ pattern: "[a-zA-Z]+$" }} fullWidth id="city" name="city" label="City" onChange={handleChange} required />
                 </Grid>
                 <Grid item xs={12} sm={6}>
                     <TextField fullWidth select id="state" name="state" label="State" onChange={handleChange} required value={user.state || ""} sx={{textAlign: "left"}} >
@@ -91,7 +94,7 @@ function Form() {
                     </TextField>
                 </Grid>
                 <Grid item xs={12} sm={6}>
-                    <TextField fullWidth id="zip" name="zip" label="Zipcode" onChange={handleChange} required />
+                    <TextField inputProps={{ pattern: "[0-9]+$" }} fullWidth id="zip" name="zip" label="Zipcode" onChange={handleChange} required />
                 </Grid>
             </Grid>
 
