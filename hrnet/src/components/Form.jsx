@@ -11,12 +11,11 @@ import MenuItem from "@mui/material/MenuItem";
 import states from "../data/states.json";
 import departments from "../data/departments.json";
 
-function Form() {
+const Form = ({ setShow }) => {
 
     const dispatch = useDispatch();
 
     const [user, setUser] = useState({});
-    const [errors, setErrors] = useState(false);
 
     function handleChange(event) {
         const {name, value} = event.target
@@ -29,7 +28,7 @@ function Form() {
             id: Date.now(),
             ...user,
         };
-
+        setShow(true);
         dispatch(addEmployee(data));
     };
 
